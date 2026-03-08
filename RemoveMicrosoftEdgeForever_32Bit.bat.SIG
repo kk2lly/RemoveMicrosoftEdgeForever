@@ -24,9 +24,13 @@ echo Changing registrys...
 timeout 4 >nul
 @echo on
 reg delete "HKCU\\SOFTWARE\\Policies\\Microsoft\\Edge" /f
+timeout 3 >nul
 reg delete "HKLM\\SOFTWARE\\Policies\\Microsoft\\Edge" /f
-reg add "HKEY_LOCAL_MACHINE\\SYSTEM\\CurrentControlSet\\Services\\edgeupdate" /v Start /t REG_DWORD /d 4 /f  
+timeout 3 >nul
+reg add "HKEY_LOCAL_MACHINE\\SYSTEM\\CurrentControlSet\\Services\\edgeupdate" /v Start /t REG_DWORD /d 4 /f
+timeout 3 >nul 
 reg add "HKEY_LOCAL_MACHINE\\SOFTWARE\\Policies\\Microsoft\\EdgeUpdate" /v UpdateDefault /t REG_DWORD /d 0 /f
+timeout 3 >nul
 @echo off
 cls
 echo Microsoft Edge has been forced removed!
