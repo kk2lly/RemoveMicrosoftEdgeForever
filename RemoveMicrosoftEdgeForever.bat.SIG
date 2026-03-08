@@ -22,16 +22,13 @@ rmdir /s /q "EdgeUpdate"
 @echo off
 echo Changing registrys...
 timeout 4 >nul
-@echo on
-reg delete "HKCU\\SOFTWARE\\Policies\\Microsoft\\Edge" /f
-timeout 3 >nul
-reg delete "HKLM\\SOFTWARE\\Policies\\Microsoft\\Edge" /f
-timeout 3 >nul
-reg add "HKEY_LOCAL_MACHINE\\SYSTEM\\CurrentControlSet\\Services\\edgeupdate" /v Start /t REG_DWORD /d 4 /f
-timeout 3 >nul 
-reg add "HKEY_LOCAL_MACHINE\\SOFTWARE\\Policies\\Microsoft\\EdgeUpdate" /v UpdateDefault /t REG_DWORD /d 0 /f
-timeout 3 >nul
 @echo off
+reg delete "HKLM\SOFTWARE\Microsoft\Edge" /f   
+timeout 1 >nul
+reg delete "HKLM\SOFTWARE\Microsoft\EdgeUpdate" /f 
+timeout 1 >nul
+reg delete "HKLM\SOFTWARE\Microsoft\EdgeCore" /f 
+timeout 1 >nul
 cls
 echo Microsoft Edge has been forced removed!
 timeout 5 >nul
